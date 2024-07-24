@@ -2,7 +2,8 @@
 
 .include /foss/pdks/sky130A/libs.tech/ngspice/corners/tt.spice
 .param mc_mm_switch=0
-.param lx=0.15 wx=23.47 nfx=1 idx=1.6666m
+*.param lx=0.15 wx=23.5 nfx=5 idx=1.6666m
+.param lx=0.15 wx=162.5 nfx=40 idx=0.5m
 .save @m.xm1a.msky130_fd_pr__nfet_01v8_lvt
 
 XM1a d g s 0 sky130_fd_pr__nfet_01v8_lvt L={lx} W={wx} nf={nfx} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'

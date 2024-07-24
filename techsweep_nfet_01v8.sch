@@ -38,7 +38,7 @@ C {devices/vsource.sym} 730 -220 2 1 {name=vb value=\{vbx\} savecurrent=false}
 C {devices/lab_wire.sym} 560 -310 0 0 {name=p1 sig_type=std_logic lab=g}
 C {devices/lab_wire.sym} 730 -360 0 0 {name=p2 sig_type=std_logic lab=d}
 C {devices/lab_wire.sym} 730 -310 0 0 {name=p3 sig_type=std_logic lab=b}
-C {devices/code_shown.sym} 20 -640 0 0 {name=COMMANDS1 only_toplevel=false
+C {devices/code_shown.sym} 20 -710 0 0 {name=COMMANDS1 only_toplevel=false
 value="
 .param wx=5 lx=0.15 vbx=0
 .dc vg 0 1.8 25m vd 0 1.8 25m
@@ -95,11 +95,16 @@ descr="fT="}
 C {devices/ngspice_get_expr.sym} 1040 -250 0 0 {name=r7 
 node="[format %.4g [expr [ngspice::get_node \{@m.xm1.msky130_fd_pr__nfet_01v8[gm]\}] / [ngspice::get_node \{i(@m.xm1.msky130_fd_pr__nfet_01v8[id])\}]]]"
 descr="gm/ID="}
-C {devices/code_shown.sym} 460 -640 0 0 {name=COMMANDS2 only_toplevel=false
+C {devices/code_shown.sym} 460 -710 0 0 {name=COMMANDS2 only_toplevel=false
 value="
 .save @m.xm1.msky130_fd_pr__nfet_01v8[capbd]
 .save @m.xm1.msky130_fd_pr__nfet_01v8[capbs]
+.save @m.xm1.msky130_fd_pr__nfet_01v8[cdd]
+.save @m.xm1.msky130_fd_pr__nfet_01v8[cgb]
+.save @m.xm1.msky130_fd_pr__nfet_01v8[cgd]
 .save @m.xm1.msky130_fd_pr__nfet_01v8[cgg]
+.save @m.xm1.msky130_fd_pr__nfet_01v8[cgs]
+.save @m.xm1.msky130_fd_pr__nfet_01v8[css]
 .save @m.xm1.msky130_fd_pr__nfet_01v8[gds] 
 .save @m.xm1.msky130_fd_pr__nfet_01v8[gm] 
 .save @m.xm1.msky130_fd_pr__nfet_01v8[gmbs] 

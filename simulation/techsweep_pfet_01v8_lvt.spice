@@ -1,4 +1,4 @@
-** sch_path: /foss/designs/chipathon/techsweep_pfet_01v8_lvt.sch
+** sch_path: /foss/designs/Chipathon2024/techsweep_pfet_01v8_lvt.sch
 **.subckt techsweep_pfet_01v8_lvt
 vg GND g 0.9
 vd GND d 0.9
@@ -51,7 +51,12 @@ write techsweep_pfet_01v8_lvt.raw
 
 .save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[capbd]
 .save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[capbs]
+.save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cdd]
+.save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgb]
+.save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgd]
 .save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgg]
+.save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgs]
+.save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[css]
 .save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gds]
 .save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gm]
 .save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gmbs]

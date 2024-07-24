@@ -39,7 +39,7 @@ C {devices/vsource.sym} 490 -290 0 0 {name=vg value="0.9" savecurrent=false}
 C {devices/gnd.sym} 490 -340 2 0 {name=l3 lab=GND}
 C {devices/vsource.sym} 790 -290 0 0 {name=vd value=0.9 savecurrent=false}
 C {devices/vsource.sym} 700 -290 2 1 {name=vb value=\{vbx\} savecurrent=false}
-C {devices/code_shown.sym} 20 -640 0 0 {name=COMMANDS1 only_toplevel=false
+C {devices/code_shown.sym} 20 -700 0 0 {name=COMMANDS1 only_toplevel=false
 value="
 .param wx=5 lx=0.35 vbx=0
 .dc vg 0 1.8 25m vd 0 1.8 25m
@@ -96,11 +96,16 @@ descr="fT="}
 C {devices/ngspice_get_expr.sym} 1040 -250 0 0 {name=r7 
 node="[format %.4g [expr [ngspice::get_node \{@m.xm1.msky130_fd_pr__pfet_01v8_lvt[gm]\}] / [ngspice::get_node \{i(@m.xm1.msky130_fd_pr__pfet_01v8_lvt[id])\}]]]"
 descr="gm/ID="}
-C {devices/code_shown.sym} 460 -640 0 0 {name=COMMANDS2 only_toplevel=false
+C {devices/code_shown.sym} 460 -700 0 0 {name=COMMANDS2 only_toplevel=false
 value="
 .save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[capbd]
 .save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[capbs]
+.save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cdd]
+.save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgb]
+.save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgd]
 .save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgg]
+.save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[cgs]
+.save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[css]
 .save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gds] 
 .save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gm] 
 .save @m.xm1.msky130_fd_pr__pfet_01v8_lvt[gmbs] 
