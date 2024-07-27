@@ -1,6 +1,6 @@
 ** sch_path: /foss/designs/Chipathon2024/noisetest_nfet_01v8_lvt.sch
 **.subckt noisetest_nfet_01v8_lvt
-vg g GND DC 0.9 AC 1
+vg g GND DC 0.75 AC 1
 vd d GND 0.9
 vsb GND b {vbx}
 XM1 d g GND b sky130_fd_pr__nfet_01v8_lvt L={lx} W={wx} nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
@@ -13,19 +13,17 @@ Hn n GND vd 1
 .save all
 .save @m.xm1.msky130_fd_pr__nfet_01v8_lvt[gm]
 .save @m.xm1.msky130_fd_pr__nfet_01v8_lvt[id]
-*.op
-.noise v(n) vg dec 10 1 1e11 1
 
 .control
-run
+noise v(n) vg dec 10 1 1e11 1
+noise v(n) vg lin  1 1 1 1
 echo $plots
-*write noisetest_nfet_01v8_lvt.raw noise1.all op1.all
 write noisetest_nfet_01v8_lvt.raw noise1.all
 
-setplot noise1
-*print onoise_spectrum
-*print onoise.m.xm1.msky130_fd_pr__nfet_01v8_lvt.id
-*print onoise.m.xm1.msky130_fd_pr__nfet_01v8_lvt.1overf
+setplot noise3
+print onoise_spectrum
+print onoise.m.xm1.msky130_fd_pr__nfet_01v8_lvt.1overf
+print onoise.m.xm1.msky130_fd_pr__nfet_01v8_lvt.id
 .endc
 
 
