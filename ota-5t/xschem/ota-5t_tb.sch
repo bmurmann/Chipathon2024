@@ -28,9 +28,9 @@ logy=0
 color="4 7"
 node="\\"Vout db20()\\"
 \\"Vout_buf db20()\\""
-rawfile=$netlist_dir/ota-5t_tb.raw
+
 sim_type=ac
-autoload=1}
+autoload=0}
 B 2 60 1060 860 1460 {flags=graph
 y1=-180
 y2=-0.06
@@ -51,9 +51,9 @@ dataset=-1
 unitx=1
 logx=1
 logy=0
-autoload=1
+autoload=0
 sim_type=ac
-rawfile=$netlist_dir/ota-5t_tb.raw}
+}
 B 2 1160 660 1960 1060 {flags=graph
 y1=-11
 y2=-6.3
@@ -76,11 +76,11 @@ logx=1
 logy=1
 
 
-rawfile=$netlist_dir/ota-5t_tb.raw
+
 sim_type=noise
 color=7
 node=onoise_spectrum
-autoload=1}
+autoload=0}
 B 2 1160 1060 1960 1460 {flags=graph
 y1=0
 y2=0.00014
@@ -103,14 +103,19 @@ logx=1
 logy=0
 color=4
 node="\\"onoise_spectrum 2 ** integ() sqrt()\\""
-rawfile=$netlist_dir/ota-5t_tb.raw
+
 sim_type=noise
-autoload=1}
+autoload=0}
 T {tcleval(A0: [to_eng [xschem raw value A0 0]]
 UGF: [to_eng [xschem raw value ugf 0]]
 PM: [to_eng [xschem raw value pm 0]]
-sets: [xschem raw datasets]
-)} 880 1050 0 0 0.6 0.6 {floater=1}
+)} 890 810 0 0 0.4 0.4 {floater=1}
+T {tcleval(
+raw info: [xschem raw info]
+)} 1400 40 0 0 0.3 0.3 {floater=1}
+T {tcleval(
+NOI: [to_eng [xschem raw value onoise_total 0]]
+)} 880 1060 0 0 0.4 0.4 {floater=1}
 N 560 150 580 150 {
 lab=Vout}
 N 580 150 580 170 {
@@ -216,10 +221,10 @@ value="
     save all
     save @m.x1.xm2a.msky130_fd_pr__pfet_01v8[id] @m.x1.xm2a.msky130_fd_pr__pfet_01v8[gm] @m.x1.xm2a.msky130_fd_pr__pfet_01v8[gds]
     save @m.x1.xm2b.msky130_fd_pr__pfet_01v8[id] @m.x1.xm2b.msky130_fd_pr__pfet_01v8[gm] @m.x1.xm2b.msky130_fd_pr__pfet_01v8[gds]
-    save @m.x1.xm1a.msky130_fd_pr__nfet_01v8[id] @m.x1.xm1a.msky130_fd_pr__nfet_01v8[gm] @m.x1.xm1a.msky130_fd_pr__nfet_01v8[gds]
-    save @m.x1.xm1b.msky130_fd_pr__nfet_01v8[id] @m.x1.xm1b.msky130_fd_pr__nfet_01v8[gm] @m.x1.xm1b.msky130_fd_pr__nfet_01v8[gds]
-    save @m.x1.xm0a.msky130_fd_pr__nfet_01v8[id] @m.x1.xm0a.msky130_fd_pr__nfet_01v8[gm] @m.x1.xm0a.msky130_fd_pr__nfet_01v8[gds]
-    save @m.x1.xm0b.msky130_fd_pr__nfet_01v8[id] @m.x1.xm0b.msky130_fd_pr__nfet_01v8[gm] @m.x1.xm0b.msky130_fd_pr__nfet_01v8[gds]
+    save @m.x1.xm1a.msky130_fd_pr__nfet_01v8_lvt[id] @m.x1.xm1a.msky130_fd_pr__nfet_01v8_lvt[gm] @m.x1.xm1a.msky130_fd_pr__nfet_01v8_lvt[gds]
+    save @m.x1.xm1b.msky130_fd_pr__nfet_01v8_lvt[id] @m.x1.xm1b.msky130_fd_pr__nfet_01v8_lvt[gm] @m.x1.xm1b.msky130_fd_pr__nfet_01v8_lvt[gds]
+    save @m.x1.xm0a.msky130_fd_pr__nfet_01v8_lvt[id] @m.x1.xm0a.msky130_fd_pr__nfet_01v8_lvt[gm] @m.x1.xm0a.msky130_fd_pr__nfet_01v8_lvt[gds]
+    save @m.x1.xm0b.msky130_fd_pr__nfet_01v8_lvt[id] @m.x1.xm0b.msky130_fd_pr__nfet_01v8_lvt[gm] @m.x1.xm0b.msky130_fd_pr__nfet_01v8_lvt[gds]
 
     op
     show
@@ -227,6 +232,7 @@ value="
     noise v(Vout_buf) Vibuf dec 20 1k 100e9
     setplot noise2
     print onoise_total
+    write ota-5t_tb_noise2.raw noise2.all
  
     ac dec 20 1k 100e9
     let vout_mag = abs(v(Vout))
@@ -236,18 +242,17 @@ value="
     meas ac PM find vout_phase_margin when vout_mag=1
 
     echo $plots
-    write ota-5t_tb.raw op1.all noise1.all noise2.all ac2.all
+    write ota-5t_tb.raw op1.all noise1.all ac2.all
 .endc
 "}
-C {devices/launcher.sym} 950 930 0 0 {name=h26
+C {devices/launcher.sym} 950 720 0 0 {name=h26
 descr="Annotate OP" 
 tclcommand="set show_hidden_texts 1; xschem annotate_op"
 }
-C {devices/launcher.sym} 950 990 0 0 {name=h27
-descr="Load raw file" 
+C {devices/launcher.sym} 950 770 0 0 {name=h27
+descr="Load raw AC" 
 tclcommand="
 xschem raw_read $netlist_dir/[file tail [file rootname [xschem get current_name]]].raw ac
-
 "
 }
 C {devices/lab_wire.sym} 580 150 0 1 {name=p11 sig_type=std_logic lab=Vout}
@@ -287,3 +292,15 @@ C {devices/lab_wire.sym} 280 70 0 0 {name=p20 sig_type=std_logic lab=VDD}
 C {devices/vsource.sym} 390 510 0 0 {name=Vibuf value="dc \{vcm\} ac 1" savecurrent=false}
 C {devices/gnd.sym} 390 560 0 0 {name=l4 lab=GND}
 C {devices/lab_wire.sym} 440 380 0 1 {name=p14 sig_type=std_logic lab=Vin_buf}
+C {devices/launcher.sym} 950 970 0 0 {name=h1
+descr="Load raw NOISE1" 
+tclcommand="
+xschem raw_read $netlist_dir/ota-5t_tb.raw noise
+"
+}
+C {devices/launcher.sym} 950 1020 0 0 {name=h2
+descr="Load raw NOISE2" 
+tclcommand="
+xschem raw_read $netlist_dir/ota-5t_tb_noise2.raw noise
+"
+}
