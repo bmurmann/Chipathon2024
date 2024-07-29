@@ -5,125 +5,95 @@ K {}
 V {}
 S {}
 E {}
-N 220 200 220 280 {
-lab=#net1}
-N 260 170 340 170 {
-lab=#net1}
-N 280 170 280 220 {
-lab=#net1}
-N 220 220 280 220 {
-lab=#net1}
-N 380 200 380 280 {
+N 270 -380 270 -300 {
+lab=mirr}
+N 310 -410 390 -410 {
+lab=mirr}
+N 330 -410 330 -360 {
+lab=mirr}
+N 270 -360 330 -360 {
+lab=mirr}
+N 460 -380 460 -300 {
 lab=Vout}
-N 220 340 220 370 {
-lab=node}
-N 220 370 300 370 {
-lab=node}
-N 300 370 300 400 {
-lab=node}
-N 300 370 380 370 {
-lab=node}
-N 380 340 380 370 {
-lab=node}
-N 160 430 260 430 {
+N 270 -240 270 -210 {
+lab=tail}
+N 270 -210 350 -210 {
+lab=tail}
+N 350 -210 430 -210 {
+lab=tail}
+N 460 -240 460 -210 {
+lab=tail}
+N 140 -170 200 -170 {
 lab=Ib}
-N 120 380 180 380 {
+N 200 -170 200 -120 {
 lab=Ib}
-N 180 380 180 430 {
-lab=Ib}
-N 120 460 120 480 {
+N 140 -90 140 -70 {
 lab=VSS}
-N 300 460 300 480 {
+N 370 -90 370 -70 {
 lab=VSS}
-N 220 120 220 140 {
+N 270 -460 270 -440 {
 lab=VDD}
-N 380 120 380 140 {
+N 460 -460 460 -440 {
 lab=VDD}
-N 100 500 380 500 {
+N 140 -70 140 -50 {
 lab=VSS}
-N 120 480 120 500 {
+N 370 -70 370 -50 {
 lab=VSS}
-N 300 480 300 500 {
-lab=VSS}
-N 100 100 380 100 {
+N 150 -480 430 -480 {
 lab=VDD}
-N 380 100 380 120 {
+N 460 -480 460 -460 {
 lab=VDD}
-N 220 100 220 120 {
+N 270 -480 270 -460 {
 lab=VDD}
-N 120 360 120 400 {
-lab=Ib}
-N 220 310 230 310 {
+N 270 -270 280 -270 {
 lab=VSS}
-N 380 170 390 170 {
-lab=VDD}
-N 210 170 220 170 {
-lab=VDD}
-N 370 310 380 310 {
+N 450 -270 460 -270 {
 lab=VSS}
-N 300 430 310 430 {
-lab=VSS}
-N 110 430 120 430 {
-lab=VSS}
-N 380 240 410 240 {
+N 460 -340 490 -340 {
 lab=Vout}
-N 520 130 520 170 {
+N 390 -410 420 -410 {
+lab=mirr}
+N 430 -210 460 -210 {
+lab=tail}
+N 430 -480 460 -480 {
 lab=VDD}
-N 520 170 530 170 {
+N 370 -180 370 -150 {
+lab=tail}
+N 140 -180 140 -150 {
+lab=Ib}
+N 370 -210 370 -180 {
+lab=tail}
+N 100 -50 120 -50 {
+lab=VSS}
+N 140 -200 140 -180 {
+lab=Ib}
+N 180 -120 230 -120 {
+lab=Ib}
+N 120 -50 170 -50 {
+lab=VSS}
+N 230 -120 330 -120 {
+lab=Ib}
+N 170 -50 370 -50 {
+lab=VSS}
+N 370 -120 370 -90 {
+lab=VSS}
+N 140 -120 140 -90 {
+lab=VSS}
+N 270 -440 270 -410 {
 lab=VDD}
-N 570 170 580 170 {
+N 460 -440 460 -410 {
 lab=VDD}
-N 580 130 580 170 {
-lab=VDD}
-N 520 130 580 130 {
-lab=VDD}
-N 570 130 570 140 {
-lab=VDD}
-N 520 440 530 440 {
-lab=VSS}
-N 520 440 520 480 {
-lab=VSS}
-N 520 480 570 480 {
-lab=VSS}
-N 570 470 570 480 {
-lab=VSS}
-N 570 440 580 440 {
-lab=VSS}
-N 580 440 580 480 {
-lab=VSS}
-N 570 480 580 480 {
-lab=VSS}
-N 570 400 570 410 {
-lab=node}
-N 570 200 570 220 {
-lab=Vout}
-N 520 310 530 310 {
-lab=VSS}
-N 520 310 520 350 {
-lab=VSS}
-N 520 350 570 350 {
-lab=VSS}
-N 570 340 570 350 {
-lab=VSS}
-N 570 310 580 310 {
-lab=VSS}
-N 580 310 580 350 {
-lab=VSS}
-N 570 350 580 350 {
-lab=VSS}
-N 570 270 570 280 {
-lab=node}
-C {devices/ipin.sym} 180 310 0 0 {name=p1 lab=Vp}
-C {devices/ipin.sym} 420 310 0 1 {name=p2 lab=Vn}
-C {devices/opin.sym} 410 240 0 0 {name=p3 lab=Vout
+C {devices/ipin.sym} 230 -270 0 0 {name=p1 lab=Vp}
+C {devices/ipin.sym} 500 -270 0 1 {name=p2 lab=Vn}
+C {devices/opin.sym} 490 -340 0 0 {name=p3 lab=Vout
 }
-C {devices/iopin.sym} 100 100 0 1 {name=p4 lab=VDD}
-C {devices/iopin.sym} 110 500 2 0 {name=p5 lab=VSS}
-C {devices/ipin.sym} 120 360 1 0 {name=p6 lab=Ib}
-C {sky130_fd_pr/nfet_01v8.sym} 200 310 0 0 {name=M4
-L=0.5
-W=20
-nf=4
+C {devices/iopin.sym} 150 -480 0 1 {name=p4 lab=VDD}
+C {devices/iopin.sym} 100 -50 2 0 {name=p5 lab=VSS}
+C {devices/ipin.sym} 140 -200 1 0 {name=p6 lab=Ib}
+C {sky130_fd_pr/nfet_01v8.sym} 250 -270 0 0 {name=M1a
+L=\{l1\}
+W=\{w1\}
+nf=\{nf1\}
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
@@ -134,11 +104,11 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/lab_wire.sym} 230 310 0 1 {name=p7 sig_type=std_logic lab=VSS}
-C {sky130_fd_pr/pfet_01v8.sym} 360 170 0 0 {name=M1
-L=1
-W=2
-nf=2
+C {devices/lab_wire.sym} 280 -270 0 1 {name=p7 sig_type=std_logic lab=VSS}
+C {sky130_fd_pr/pfet_01v8.sym} 440 -410 0 0 {name=M2b
+L=\{l2\}
+W=\{w2\}
+nf=\{nf2\}
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
@@ -149,11 +119,10 @@ sa=0 sb=0 sd=0
 model=pfet_01v8
 spiceprefix=X
 }
-C {devices/lab_wire.sym} 390 170 0 1 {name=p9 sig_type=std_logic lab=VDD}
-C {sky130_fd_pr/pfet_01v8.sym} 240 170 0 1 {name=M2
-L=1
-W=2
-nf=2
+C {sky130_fd_pr/pfet_01v8.sym} 290 -410 0 1 {name=M2a
+L=\{l2\}
+W=\{w2\}
+nf=\{nf2\}
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
@@ -164,11 +133,10 @@ sa=0 sb=0 sd=0
 model=pfet_01v8
 spiceprefix=X
 }
-C {devices/lab_wire.sym} 210 170 0 0 {name=p10 sig_type=std_logic lab=VDD}
-C {sky130_fd_pr/nfet_01v8.sym} 400 310 0 1 {name=M3
-L=0.5
-W=20
-nf=4
+C {sky130_fd_pr/nfet_01v8.sym} 480 -270 0 1 {name=M1b
+L=\{l1\}
+W=\{w1\}
+nf=\{nf1\}
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
@@ -179,11 +147,11 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/lab_wire.sym} 370 310 0 0 {name=p11 sig_type=std_logic lab=VSS}
-C {sky130_fd_pr/nfet_01v8.sym} 280 430 0 0 {name=M5
-L=1
-W=2
-nf=2
+C {devices/lab_wire.sym} 450 -270 0 0 {name=p11 sig_type=std_logic lab=VSS}
+C {sky130_fd_pr/nfet_01v8.sym} 350 -120 0 0 {name=M0b
+L=\{l0\}
+W=\{w0\}
+nf=\{nf0\}
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
@@ -194,11 +162,10 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/lab_wire.sym} 310 430 0 1 {name=p12 sig_type=std_logic lab=VSS}
-C {sky130_fd_pr/nfet_01v8.sym} 140 430 0 1 {name=M6
-L=1
-W=2
-nf=2
+C {sky130_fd_pr/nfet_01v8.sym} 160 -120 0 1 {name=M0a
+L=\{l0\}
+W=\{w0\}
+nf=\{nf0\}
 mult=1
 ad="'int((nf+1)/2) * W/nf * 0.29'" 
 pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
@@ -209,53 +176,5 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
-C {devices/lab_wire.sym} 110 430 0 0 {name=p13 sig_type=std_logic lab=VSS}
-C {sky130_fd_pr/pfet_01v8.sym} 550 170 0 0 {name=M7
-L=1
-W=2
-nf=2
-mult=1
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=pfet_01v8
-spiceprefix=X
-}
-C {sky130_fd_pr/nfet_01v8.sym} 550 310 0 0 {name=M8
-L=0.5
-W=20
-nf=4
-mult=1
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=nfet_01v8
-spiceprefix=X
-}
-C {sky130_fd_pr/nfet_01v8.sym} 550 440 0 0 {name=M9
-L=1
-W=2
-nf=2
-mult=1
-ad="'int((nf+1)/2) * W/nf * 0.29'" 
-pd="'2*int((nf+1)/2) * (W/nf + 0.29)'"
-as="'int((nf+2)/2) * W/nf * 0.29'" 
-ps="'2*int((nf+2)/2) * (W/nf + 0.29)'"
-nrd="'0.29 / W'" nrs="'0.29 / W'"
-sa=0 sb=0 sd=0
-model=nfet_01v8
-spiceprefix=X
-}
-C {devices/lab_wire.sym} 580 130 0 1 {name=p8 sig_type=std_logic lab=VDD}
-C {devices/lab_wire.sym} 520 480 0 1 {name=p14 sig_type=std_logic lab=VSS}
-C {devices/lab_wire.sym} 570 220 0 1 {name=p16 sig_type=std_logic lab=Vout}
-C {devices/lab_wire.sym} 300 370 0 1 {name=p17 sig_type=std_logic lab=node}
-C {devices/lab_wire.sym} 520 350 0 1 {name=p15 sig_type=std_logic lab=VSS}
-C {devices/lab_wire.sym} 570 400 0 1 {name=p19 sig_type=std_logic lab=node}
-C {devices/lab_wire.sym} 570 270 0 1 {name=p18 sig_type=std_logic lab=node}
+C {devices/lab_wire.sym} 370 -170 0 1 {name=p17 sig_type=std_logic lab=tail}
+C {devices/lab_wire.sym} 380 -410 0 1 {name=p8 sig_type=std_logic lab=mirr}
