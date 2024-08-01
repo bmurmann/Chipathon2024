@@ -1,5 +1,5 @@
- # 5-transistor OTA Example
- Based on: https://github.com/mole99/ota-5t  
+# 5-transistor OTA Example
+Based on: https://github.com/mole99/ota-5t  
 See also: https://cace.readthedocs.io/en/latest/tutorial/index.html  
   
 The design is modified here for a unity-gain gain buffer application with a specification for the total integrated output noise. Nominal sizing is done using pre-computed lookup tables in a notebook. Sign-off with corner sweeps is done with CACE.
