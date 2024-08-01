@@ -3,7 +3,7 @@
 #--------------------------------------------------------------
 
 name:           ota-5t
-description:    A simple 5-transistor OTA
+description:    Buffer design using simple 5-transistor OTA
 commit:         n/a
 PDK:            sky130A
 
@@ -60,16 +60,6 @@ default_conditions:
     display: Vcm
     unit: V
     typical: 0.9
-  ib:
-    description: Bias current
-    display: Ib
-    unit: uA
-    typical: 10
-  cl:
-    description: Output load capacitance
-    display: CLoad
-    unit: pF
-    maximum: 1
   corner:
     description: Process corner
     display: Corner
@@ -82,12 +72,12 @@ default_conditions:
 
 electrical_parameters:
   A0:
-    description: DC gain
-    display: A0
+    description: Open-loop DC gain
+    display: Open-loop DC gain
     unit: V/V
     spec:
       minimum:
-        value: 50
+        value: 30
         fail: true
       typical:
         value: any
@@ -112,13 +102,12 @@ electrical_parameters:
         maximum: 130
 
   UGF:
-    description: Unity Gain Frequency
-    display: UGF
-    unit: Hz
+    description: Open-loop unity gain grequency
+    display: Open-loop unity gain frequency
+    unit: MHz
     spec:
       minimum:
-        value: 1e6
-        fail: true
+        value: any
       typical:
         value: any
       maximum:
@@ -142,12 +131,12 @@ electrical_parameters:
         maximum: 130
 
   PM:
-    description: Phase Margin
-    display: PM
+    description: Unity gain phase margin
+    display: Unity gain phase margin
     unit: °
     spec:
       minimum:
-        value: 60
+        value: 80
         fail: true
       typical:
         value: any
@@ -159,6 +148,36 @@ electrical_parameters:
         format: ascii
         suffix: .data
         variables: ['null', 'null', result]
+    conditions:
+      vdd:
+        minimum: 1.7
+        typical: 1.8
+        maximum: 1.9
+      corner:
+        enumerate: [tt, ff, ss] # fs, sf
+      temperature:
+        minimum: -40
+        typical: 27
+        maximum: 130
+
+  NOI:
+    description: Total integrated output noise
+    display: Total integrated output noise
+    unit: uVrms
+    spec:
+      minimum:
+        value: any
+      typical:
+        value: any
+      maximum:
+        value: 50
+        fail: true
+    simulate:
+      ngspice:
+        template: ota-5t_tb_noise.spice
+        format: ascii
+        suffix: .data
+        variables: [result]
     conditions:
       vdd:
         minimum: 1.7

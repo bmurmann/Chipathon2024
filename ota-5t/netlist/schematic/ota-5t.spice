@@ -1,14 +1,11 @@
 ** sch_path: /foss/designs/Chipathon2024/ota-5t/xschem/ota-5t.sch
 .subckt ota-5t Vp Vn Vout VDD VSS Ib
 *.PININFO Vp:I Vn:I Vout:O VDD:B VSS:B Ib:I
-XM4 net1 Vp node VSS sky130_fd_pr__nfet_01v8 L=0.5 W=20 nf=4 m=1
-XM1 Vout net1 VDD VDD sky130_fd_pr__pfet_01v8 L=1 W=2 nf=2 m=1
-XM2 net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=1 W=2 nf=2 m=1
-XM3 Vout Vn node VSS sky130_fd_pr__nfet_01v8 L=0.5 W=20 nf=4 m=1
-XM5 node Ib VSS VSS sky130_fd_pr__nfet_01v8 L=1 W=2 nf=2 m=1
-XM6 Ib Ib VSS VSS sky130_fd_pr__nfet_01v8 L=1 W=2 nf=2 m=1
-XM7 Vout VDD VDD VDD sky130_fd_pr__pfet_01v8 L=1 W=2 nf=2 m=1
-XM8 node VSS VSS VSS sky130_fd_pr__nfet_01v8 L=0.5 W=20 nf=4 m=1
-XM9 node VSS VSS VSS sky130_fd_pr__nfet_01v8 L=1 W=2 nf=2 m=1
+XM2b Vout mirr VDD VDD sky130_fd_pr__pfet_01v8 L={l2} W={w2} nf={nf2} m=1
+XM2a mirr mirr VDD VDD sky130_fd_pr__pfet_01v8 L={l2} W={w2} nf={nf2} m=1
+XM1a mirr Vp tail VSS sky130_fd_pr__nfet_01v8_lvt L={l1} W={w1} nf={nf1} m=1
+XM1b Vout Vn tail VSS sky130_fd_pr__nfet_01v8_lvt L={l1} W={w1} nf={nf1} m=1
+XM0b tail Ib VSS VSS sky130_fd_pr__nfet_01v8_lvt L={l0} W={w0} nf={nf0} m=1
+XM0a Ib Ib VSS VSS sky130_fd_pr__nfet_01v8_lvt L={l0} W={w0} nf={nf0} m=1
 .ends
 .end
