@@ -3,7 +3,7 @@
 #--------------------------------------------------------------
 
 name:           ota-5t
-description:    Buffer design using simple 5-transistor OTA
+description:    Buffer design using a simple 5-transistor OTA
 commit:         n/a
 PDK:            sky130A
 
@@ -12,14 +12,14 @@ cace_format:    5.0
 authorship:
   designer:         Boris Murmann
   company:          University of Hawaii
-  creation_date:    July 28, 2024
+  creation_date:    August 8, 2024
   license:          Apache 2.0
 
 paths:
   root:             ..
   schematic:        xschem
   netlist:          netlist
-  documentation:    doc
+  documentation:    docs
 
 pins:
   VDD:
@@ -70,7 +70,7 @@ default_conditions:
     unit: °C
     typical: 27
 
-electrical_parameters:
+parameters:
   A0:
     description: Open-loop DC gain
     display: Open-loop DC gain
@@ -83,9 +83,9 @@ electrical_parameters:
         value: any
       maximum:
         value: any
-    simulate:
+    tool:
       ngspice:
-        template: ota-5t_tb.spice
+        template: ota-5t_tb.sch
         format: ascii
         suffix: .data
         variables: [result, 'null', 'null']
@@ -112,9 +112,9 @@ electrical_parameters:
         value: any
       maximum:
         value: any
-    simulate:
+    tool:
       ngspice:
-        template: ota-5t_tb.spice
+        template: ota-5t_tb.sch
         format: ascii
         suffix: .data
         variables: ['null', result, 'null']
@@ -142,9 +142,9 @@ electrical_parameters:
         value: any
       maximum:
         value: any
-    simulate:
+    tool:
       ngspice:
-        template: ota-5t_tb.spice
+        template: ota-5t_tb.sch
         format: ascii
         suffix: .data
         variables: ['null', 'null', result]
@@ -172,9 +172,9 @@ electrical_parameters:
       maximum:
         value: 50
         fail: true
-    simulate:
+    tool:
       ngspice:
-        template: ota-5t_tb_noise.spice
+        template: ota-5t_tb_noise.sch
         format: ascii
         suffix: .data
         variables: [result]
@@ -189,14 +189,3 @@ electrical_parameters:
         minimum: -40
         typical: 27
         maximum: 130
-
-physical_parameters:
-  area:
-    description: Total circuit layout area
-    display: Area
-    unit: µm²
-    spec:
-      maximum:
-        value: 
-        fail: false
-    evaluate: None

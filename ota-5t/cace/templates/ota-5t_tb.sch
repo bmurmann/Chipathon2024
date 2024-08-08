@@ -64,7 +64,7 @@ lab=Ib}
 C {devices/lab_wire.sym} 490 70 0 0 {name=p2 sig_type=std_logic lab=VDD}
 C {devices/capa.sym} 600 180 0 0 {name=C1
 m=1
-value=\{cl\}
+value=1p
 footprint=1206
 device="ceramic capacitor"}
 C {devices/gnd.sym} 600 210 0 0 {name=l2 lab=GND}
