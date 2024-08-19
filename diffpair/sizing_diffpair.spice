@@ -1,6 +1,10 @@
 ** differential pair sizing example
 
-.include /foss/pdks/sky130A/libs.tech/ngspice/corners/tt.spice
+* old binned models
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+* new continuous models
+*.lib /foss/pdks/sky130A/libs.tech/combined/sky130.lib.spice tt
+
 .param mc_mm_switch=0
 *.param lx=0.15 wx=23.5 nfx=5 idx=1.6666m
 .param lx=0.15 wx=162.5 nfx=40 idx=0.5m
