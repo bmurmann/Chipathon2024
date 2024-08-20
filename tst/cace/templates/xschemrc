@@ -1,2 +1,0 @@
-# Source project xschemrc
-source [file dirname [info script]]/../../xschem/xschemrc
