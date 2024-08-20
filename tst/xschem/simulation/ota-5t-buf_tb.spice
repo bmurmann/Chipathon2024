@@ -1,0 +1,80 @@
+** sch_path: /foss/designs/Chipathon2024/ota-5t-buf/xschem/ota-5t-buf_tb.sch
+**.subckt ota-5t-buf_tb
+x1 Vp Vn Vout VDD VSS ota-5t-buf
+V0 VSS GND 0
+V2 VDD GND {vdd}
+E1 Vp net2 net1 GND 0.5
+E2 Vn net2 net1 GND -0.5
+Vdm net1 GND dc 0 ac 1
+Vcm net2 GND {vcm}
+x2 Vin_buf Vout_buf Vout_buf VDD VSS ota-5t-buf
+Vibuf Vin_buf GND dc {vcm} ac 1
+**** begin user architecture code
+
+
+.param vdd=1.8
+.param vcm=0.9
+.include ../sizing_ota-5t-buf.spice
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.control
+    save all
+    save @m.x1.xm2a.msky130_fd_pr__pfet_01v8[id] @m.x1.xm2a.msky130_fd_pr__pfet_01v8[gm] @m.x1.xm2a.msky130_fd_pr__pfet_01v8[gds]
+    save @m.x1.xm2b.msky130_fd_pr__pfet_01v8[id] @m.x1.xm2b.msky130_fd_pr__pfet_01v8[gm] @m.x1.xm2b.msky130_fd_pr__pfet_01v8[gds]
+    save @m.x1.xm1a.msky130_fd_pr__nfet_01v8_lvt[id] @m.x1.xm1a.msky130_fd_pr__nfet_01v8_lvt[gm] @m.x1.xm1a.msky130_fd_pr__nfet_01v8_lvt[gds]
+    save @m.x1.xm1b.msky130_fd_pr__nfet_01v8_lvt[id] @m.x1.xm1b.msky130_fd_pr__nfet_01v8_lvt[gm] @m.x1.xm1b.msky130_fd_pr__nfet_01v8_lvt[gds]
+    save @m.x1.xm0a.msky130_fd_pr__nfet_01v8_lvt[id] @m.x1.xm0a.msky130_fd_pr__nfet_01v8_lvt[gm] @m.x1.xm0a.msky130_fd_pr__nfet_01v8_lvt[gds]
+    save @m.x1.xm0b.msky130_fd_pr__nfet_01v8_lvt[id] @m.x1.xm0b.msky130_fd_pr__nfet_01v8_lvt[gm] @m.x1.xm0b.msky130_fd_pr__nfet_01v8_lvt[gds]
+
+    op
+    show
+
+    noise v(Vout_buf) Vibuf dec 20 1k 100e9
+    setplot noise2
+    print onoise_total
+    let NOI = onoise_total/1e-6
+    echo $&NOI
+    write ota-5t-buf_tb_noise2.raw noise2.all
+
+    ac dec 20 1k 100e9
+    let vout_mag = abs(v(Vout))
+    let vout_phase_margin = phase(v(Vout)) * 180/pi + 180
+    meas ac A0 find vout_mag at=1k
+    meas ac UGF when vout_mag=1 fall=1
+    meas ac PM find vout_phase_margin when vout_mag=1
+    echo $&A0 $&UGF $&PM
+    echo $plots
+    write ota-5t-buf_tb.raw op1.all noise1.all ac2.all
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  ota-5t-buf.sym # of pins=5
+** sym_path: /foss/designs/Chipathon2024/ota-5t-buf/xschem/ota-5t-buf.sym
+** sch_path: /foss/designs/Chipathon2024/ota-5t-buf/xschem/ota-5t-buf.sch
+.subckt ota-5t-buf Vp Vn Vout VDD VSS
+*.ipin Vp
+*.ipin Vn
+*.opin Vout
+*.iopin VDD
+*.iopin VSS
+XM2b Vout mirr VDD VDD sky130_fd_pr__pfet_01v8 L={l2} W={w2} nf={nf2} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2a mirr mirr VDD VDD sky130_fd_pr__pfet_01v8 L={l2} W={w2} nf={nf2} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM1a mirr Vp tail VSS sky130_fd_pr__nfet_01v8_lvt L={l1} W={w1} nf={nf1} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM1b Vout Vn tail VSS sky130_fd_pr__nfet_01v8_lvt L={l1} W={w1} nf={nf1} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM0b tail net1 VSS VSS sky130_fd_pr__nfet_01v8_lvt L={l0} W={w0} nf={nf0} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM0a net1 net1 VSS VSS sky130_fd_pr__nfet_01v8_lvt L={l0} W={w0} nf={nf0} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+I0 VDD net1 {ib}
+C1 Vout VSS {cl} m=1
+.ends
+
+.GLOBAL GND
+.end

@@ -1,0 +1,19 @@
+** sch_path: /foss/designs/Chipathon2024/ota-5t-buf/xschem/ota-5t-buf.sch
+.subckt ota-5t-buf Vp Vn Vout VDD VSS
+*.PININFO Vp:I Vn:I Vout:O VDD:B VSS:B
+XM2b Vout mirr VDD VDD sky130_fd_pr__pfet_01v8 L={l2} W={w2} nf={nf2} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2a mirr mirr VDD VDD sky130_fd_pr__pfet_01v8 L={l2} W={w2} nf={nf2} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM1a mirr Vp tail VSS sky130_fd_pr__nfet_01v8_lvt L={l1} W={w1} nf={nf1} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM1b Vout Vn tail VSS sky130_fd_pr__nfet_01v8_lvt L={l1} W={w1} nf={nf1} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM0b tail net1 VSS VSS sky130_fd_pr__nfet_01v8_lvt L={l0} W={w0} nf={nf0} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM0a net1 net1 VSS VSS sky130_fd_pr__nfet_01v8_lvt L={l0} W={w0} nf={nf0} ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29'
++ pd='2*int((nf+1)/2) * (W/nf + 0.29)' ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+I0 VDD net1 {ib}
+C1 Vout VSS {cl} m=1
+.ends
+.end

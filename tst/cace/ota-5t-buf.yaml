@@ -1,0 +1,165 @@
+#--------------------------------------------------------------
+# CACE circuit characterization file
+#--------------------------------------------------------------
+
+name:           ota-5t-buf
+description:    A simple buffer using a 5-transistor OTA
+PDK:            sky130A
+
+cace_format:    5.2
+
+authorship:
+  designer:         Boris Murmann
+  company:          University of Hawaii
+  creation_date:    August 19, 2024
+  license:          Apache 2.0
+
+paths:
+  root:             ..
+  schematic:        xschem
+  netlist:          netlist
+  documentation:    docs
+
+pins:
+  VDD:
+    description: Positive analog power supply
+    type: power
+    direction: inout
+    Vmin: 1.7
+    Vmax: 1.9
+  VSS:
+    description: Analog ground
+    type: ground
+    direction: inout
+  Vp:
+    description: Voltage positive input
+    type: signal
+    direction: input
+  Vn:
+    description: Voltage negative input
+    type: signal
+    direction: input
+  Vout:
+    description: Voltage output
+    type: signal
+    direction: output
+
+default_conditions:
+  vdd:
+    description: Analog power supply voltage
+    display: Vdd
+    unit: V
+    typical: 1.8
+  vcm:
+    description: Input common mode voltage
+    display: Vcm
+    unit: V
+    typical: 0.9
+  corner:
+    description: Process corner
+    display: Corner
+    typical: tt
+  temperature:
+    description: Ambient temperature
+    display: Temp
+    unit: °C
+    typical: 27
+
+parameters:
+  open_loop:
+    spec:
+      a0:
+        display: Open-loop DC voltage gain
+        description: Open-loop DC voltage gain
+        unit: V/V
+        minimum:
+          value: 30
+        typical:
+          value: any
+        maximum:
+          value: any
+      ugf:
+        display: Open-loop unity gain frequency
+        description: Open-loop unity gain frequency
+        unit: MHz
+        minimum:
+          value: any
+        typical:
+          value: any
+        maximum:
+          value: any
+      pm:
+        display: Unity gain phase margin
+        description: Unity gain phase margin
+        unit: °
+        minimum:
+          value: 80
+        typical:
+          value: any
+        maximum:
+          value: any
+    tool:
+      ngspice:
+        template: ac.sch
+        format: ascii
+        suffix: .data
+        variables: [a0, ugf, pm]
+    plot:
+      gain_vs_corner:
+        type: xyplot
+        xaxis: corner
+        yaxis: a0
+      ugf_vs_corner:
+        type: xyplot
+        xaxis: corner
+        yaxis: ugf
+      pm_vs_corner:
+        type: xyplot
+        xaxis: corner
+        yaxis: pm
+    conditions:
+      corner:
+        enumerate: [ss, tt, ff]
+      vdd:
+        minimum: 1.7
+        typical: 1.8
+        maximum: 1.9
+      temperature:
+        minimum: -40
+        typical: 27
+        maximum: 130
+
+  closed_loop_noise:
+    spec:
+      noi:
+        display: Total integrated output noise
+        description: Total integrated output noise
+        unit: uVrms
+        minimum:
+          value: any
+        typical:
+          value: any
+        maximum:
+          value: 50
+    tool:
+      ngspice:
+        template: noise.sch
+        format: ascii
+        suffix: .data
+        variables: [noi]
+    plot:
+      noise_vs_temperature:
+        type: xyplot
+        xaxis: temperature
+        yaxis: noi
+    conditions:
+      corner:
+        enumerate: [ss, tt, ff]
+      vdd:
+        minimum: 1.7
+        typical: 1.8
+        maximum: 1.9
+      temperature:
+        minimum: -40
+        typical: 27
+        maximum: 130
