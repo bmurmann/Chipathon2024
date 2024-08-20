@@ -1,0 +1,31 @@
+Title: ** sch_path: /foss/designs/chipathon2024/ota-5t-buf/xschem/ota-5t-buf_tb.sch
+Date: Tue Aug 20 07:03:29  2024
+Plotname: Integrated Noise
+Flags: real
+No. Variables: 21
+No. Points: 1
+Variables:
+	0	v(onoise_total)	voltage
+	1	@m.x1.xm0a.msky130_fd_pr__nfet_01v8_lvt[gds]	admittance
+	2	@m.x1.xm0a.msky130_fd_pr__nfet_01v8_lvt[gm]	admittance
+	3	i(@m.x1.xm0a.msky130_fd_pr__nfet_01v8_lvt[id])	current
+	4	@m.x1.xm0b.msky130_fd_pr__nfet_01v8_lvt[gds]	admittance
+	5	@m.x1.xm0b.msky130_fd_pr__nfet_01v8_lvt[gm]	admittance
+	6	i(@m.x1.xm0b.msky130_fd_pr__nfet_01v8_lvt[id])	current
+	7	@m.x1.xm1a.msky130_fd_pr__nfet_01v8_lvt[gds]	admittance
+	8	@m.x1.xm1a.msky130_fd_pr__nfet_01v8_lvt[gm]	admittance
+	9	i(@m.x1.xm1a.msky130_fd_pr__nfet_01v8_lvt[id])	current
+	10	@m.x1.xm1b.msky130_fd_pr__nfet_01v8_lvt[gds]	admittance
+	11	@m.x1.xm1b.msky130_fd_pr__nfet_01v8_lvt[gm]	admittance
+	12	i(@m.x1.xm1b.msky130_fd_pr__nfet_01v8_lvt[id])	current
+	13	@m.x1.xm2a.msky130_fd_pr__pfet_01v8[gds]	admittance
+	14	@m.x1.xm2a.msky130_fd_pr__pfet_01v8[gm]	admittance
+	15	i(@m.x1.xm2a.msky130_fd_pr__pfet_01v8[id])	current
+	16	@m.x1.xm2b.msky130_fd_pr__pfet_01v8[gds]	admittance
+	17	@m.x1.xm2b.msky130_fd_pr__pfet_01v8[gm]	admittance
+	18	i(@m.x1.xm2b.msky130_fd_pr__pfet_01v8[id])	current
+	19	v(inoise_total)	voltage
+	20	noi	notype
+Binary:
+ðì°ÄöB	?&Þ-?oxêJ@~?YÁ›þ<8?‘ËyÜæ?Oci¹&ä|?:BÑŠð·6?úp¤•ßä? åLË³Ym?2Àø‹ð·&?.sÜ•ßä?«?Ë³Ym?nxì‹ð·&?Ï¬ïã>0eIý¶]?wæµ†ð·&?*+œïã>ËÂKý¶]?Ÿ¸†ð·&?djSâ
+A?¶J,ž`H@
