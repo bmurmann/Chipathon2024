@@ -1,5 +1,7 @@
 # File dump for IEEE SSCS Chipathon 2024
 
 Related presentation material:  
-[IEEE SSCS Chipathon, July 25, 2024: Transistor sizing basics](https://docs.google.com/presentation/d/e/2PACX-1vSLguBdByfrYl4dXrtKhNEulK_ybnILiF-jkwRwuG9YQStD4rTFOme-KROtFEr1gg/pub?start=false&loop=false&delayms=3000&pli=1&slide=id.p1)  
-[IEEE SSCS Chipathon, August 1, 2024: Sizing a 5T OTA](https://docs.google.com/presentation/d/e/2PACX-1vRsXkpKEN2FEDzwbIBuY0PNdsgYScAbR_Q8w63SJDVIkGk4zOPSOtIKFO_bpm6jJg/pub?start=false&loop=false&delayms=3000&slide=id.p1)
+[IEEE SSCS Chipathon, July 25, 2024: Transistor sizing basics](https://docs.google.com/presentation/d/1CmZlJf_GPc-H4LRFmhwvaIzZadMvDUaG/present?slide=id.p1))  
+[IEEE SSCS Chipathon, August 1, 2024: Sizing a 5T OTA](https://docs.google.com/presentation/d/1CmM5N6-I9DX7aFC9SWwOze7dk5jMOrbj/present?slide=id.p1))
+
+Note: The techsweep folder in this repo is outdated. Please use the files from [this](https://github.com/bmurmann/Book-on-gm-ID-design/tree/main/starter_files_open_source_tools) repo.
